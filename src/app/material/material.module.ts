@@ -3,9 +3,10 @@ import {DomSanitizer} from '@angular/platform-browser';
 import {IMatIcon} from './interfaces/mat-icon.interface';
 import {MATERIAL_ICONS_LIST} from './material-icons-list';
 import {MatIconRegistry} from '@angular/material/icon';
+import {MatIconModule} from '@angular/material/icon';
 
 const MATERIAL_MODULES = [
-
+  MatIconModule
 ];
 
 @NgModule({

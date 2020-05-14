@@ -1,0 +1,11 @@
+:host {
+  display: block;
+  height: 100vh;
+}
+
+.pages {
+  &__header {
+    height: 60px;
+    background-color: red;
+  }
+}

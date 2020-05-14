@@ -1,0 +1,34 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #ffcc80;
+}
+
+.login {
+  &__block {
+    display: flex;
+    height: 600px;
+    width: 1000px;
+    border-radius: 20px;
+    background-color: #f2f2f2;
+    box-shadow: 0 0 8px rgba(#000000, .2);
+  }
+
+  &__image {
+    height: 100%;
+    width: 50%;
+    background-image: url('src/assets/images/honeycomb.jpg');
+    background-size: cover;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+  }
+}
