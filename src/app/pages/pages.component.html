@@ -1,4 +1,5 @@
 <header class="pages__header">
-  <a (click)="toLoginPage()">LOGIN</a>
+  <a (click)="toLoginPage()" *ngIf="!isLogined">LOGIN</a>
+  <a (click)="logout()" *ngIf="isLogined">LOGOUT</a>
 </header>
 <router-outlet></router-outlet>

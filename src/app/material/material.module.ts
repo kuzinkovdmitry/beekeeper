@@ -1,12 +1,20 @@
 import { NgModule } from '@angular/core';
-import {DomSanitizer} from '@angular/platform-browser';
-import {IMatIcon} from './interfaces/mat-icon.interface';
-import {MATERIAL_ICONS_LIST} from './material-icons-list';
-import {MatIconRegistry} from '@angular/material/icon';
-import {MatIconModule} from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
+import { IMatIcon } from './interfaces/mat-icon.interface';
+import { MATERIAL_ICONS_LIST } from './material-icons-list';
+import { MatIconRegistry } from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const MATERIAL_MODULES = [
-  MatIconModule
+  MatIconModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatSnackBarModule,
+  MatButtonModule
 ];
 
 @NgModule({

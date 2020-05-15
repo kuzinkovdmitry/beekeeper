@@ -6,5 +6,51 @@
     <mat-icon svgIcon="logo"
               class="login__icon">
     </mat-icon>
+    <form [formGroup]="loginForm"
+          class="login__form-block"
+          (ngSubmit)="onSubmit()">
+
+      <mat-form-field floatLabel="auto"
+                      class="login__login"
+                      appearance="outline">
+        <mat-label>{{'email' | translate}}</mat-label>
+        <input matInput
+               [formControl]="form.email">
+        <mat-icon matSuffix
+                  class="login__cross"
+                  (click)="resetEmail()"
+                  svgIcon="round-cross"
+                  *ngIf="formEmail">
+        </mat-icon>
+      </mat-form-field>
+
+      <mat-form-field floatLabel="auto"
+                      class="login__password"
+                      appearance="outline">
+        <mat-label>{{'password' | translate}}</mat-label>
+        <input matInput
+               [formControl]="form.password"
+               [type]="hide ? 'password' : 'text'">
+        <mat-icon matSuffix
+                  class="login__eye"
+                  (click)="togglePassword()"
+                  *ngIf="formPassword"
+                  [svgIcon]="hide ? 'show-input' : 'hide-input'">
+        </mat-icon>
+        <mat-icon matSuffix
+                  class="login__cross"
+                  (click)="resetPassword()"
+                  svgIcon="round-cross"
+                  *ngIf="formPassword">
+        </mat-icon>
+      </mat-form-field>
+
+      <button mat-raised-button
+              class="login__submit"
+              [ngClass]="{'__disabled': !loginForm.valid}"
+              color="primary">
+        {{'log-in' | translate}}
+      </button>
+    </form>
   </div>
 </div>

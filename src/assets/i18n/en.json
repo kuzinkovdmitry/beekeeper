@@ -1,3 +1,5 @@
 {
-  "test": "qweqweqwe"
+  "email": "Email",
+  "password": "Password",
+  "log-in": "Log In"
 }

@@ -1,0 +1,9 @@
+mat-form-field {
+  &.login__login,
+  &.login__password {
+    .mat-form-field-suffix {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
