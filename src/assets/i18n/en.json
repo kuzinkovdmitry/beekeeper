@@ -1,5 +1,14 @@
 {
   "email": "Email",
   "password": "Password",
-  "log-in": "Log In"
+  "log-in": "Log In",
+  "log-out": "Log Out",
+  "back-to-home": "Back to Home page",
+  "menu-home": "Home",
+  "menu-hive-statistics": "Hive statistics",
+  "menu-work-statistics": "Work statistics",
+  "menu-worker": "Workers",
+  "welcome": "Welcome",
+  "wrong-email-data": "Your email or password was incorrect! Try again!",
+  "wrong-services": "Services are not available now!"
 }

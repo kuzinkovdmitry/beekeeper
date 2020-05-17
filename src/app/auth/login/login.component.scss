@@ -48,4 +48,25 @@
       opacity: .5;
     }
   }
+
+  &__back-to-home {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+      .login__back-text,
+      .login__back-icon {
+        color: #331f00;
+      }
+    }
+  }
+
+  &__back-text {
+    margin: 0;
+    font-size: 18px;
+  }
 }

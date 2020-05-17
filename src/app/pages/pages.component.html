@@ -1,5 +1,51 @@
 <header class="pages__header">
-  <a (click)="toLoginPage()" *ngIf="!isLogined">LOGIN</a>
-  <a (click)="logout()" *ngIf="isLogined">LOGOUT</a>
+  <div class="pages__header-left">
+    <mat-icon svgIcon="logo"
+              routerLink="/home"
+              class="pages__logo">
+    </mat-icon>
+    <div class="pages__menu">
+      <a *ngFor="let item of menuList"
+         class="pages__menu-item"
+         [ngClass]="{'__active': item.active, '__disabled': !isLogined && item.mustLogin}"
+         [routerLink]="[item.url]">
+        <mat-icon *ngIf="!isLogined && item.mustLogin"
+                  class="pages__lock-icon"
+                  svgIcon="lock">
+        </mat-icon>
+        <span>{{item.translate | translate}}</span>
+      </a>
+    </div>
+  </div>
+  <div class="pages__header-right">
+    <div class="pages__lang-block">
+      <img src="../../assets/images/{{selectedLang}}-lang.png"
+           alt=""
+           class="pages__selected-lang">
+      <mat-select class="pages__languages"
+                  [formControl]="languageControl">
+        <mat-option *ngFor="let language of languageList"
+                    [value]="language.key">
+          <img src="../../assets/images/{{language.key}}-lang.png"
+               alt=""
+               class="pages__lang-item-flag">
+          {{language.name}}
+        </mat-option>
+      </mat-select>
+    </div>
+    <p class="pages__hello-message"
+       *ngIf="isLogined && userData">
+      {{'welcome' | translate}}, {{userData.firstName}}!
+    </p>
+    <div class="pages__login-state">
+      <mat-icon [svgIcon]="isLogined ? 'sign-out' : 'sign-in'"
+                class="pages__login-state-icon">
+      </mat-icon>
+      <a (click)="changeLoginState()"
+         class="pages__login-state-text">
+        {{(isLogined ? 'log-out' : 'log-in') | translate}}
+      </a>
+    </div>
+  </div>
 </header>
 <router-outlet></router-outlet>

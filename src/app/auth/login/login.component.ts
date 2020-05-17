@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/fo
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit {
   hide = true;
 
   constructor(private authService: AuthService,
+              private translateService: TranslateService,
               private snackBar: MatSnackBar,
               private router: Router) { }
 
@@ -51,14 +53,10 @@ export class LoginComponent implements OnInit {
         this.authService.setLoginState(true);
         this.router.navigate(['home']);
       } else {
-        this.snackBar.open(
-          'Your email or password was incorrect! Try again!',
-          'ОК',
-          {
-            duration: 5000,
-            verticalPosition: 'top'
-          });
+        this.openSnackBar(this.translateService.instant('wrong-email-data'));
       }
+    }, () => {
+      this.openSnackBar(this.translateService.instant('wrong-services'));
     });
   }
 
@@ -72,6 +70,20 @@ export class LoginComponent implements OnInit {
 
   togglePassword() {
     this.hide = !this.hide;
+  }
+
+  openSnackBar(message: string) {
+    this.snackBar.open(
+      message,
+      'ОК',
+      {
+        duration: 5000,
+        verticalPosition: 'top'
+      });
+  }
+
+  toHomePage() {
+    this.router.navigate(['home']);
   }
 
   writeDataToLocalStorage(userData) {

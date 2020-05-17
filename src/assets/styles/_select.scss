@@ -1,0 +1,16 @@
+mat-select {
+  &.pages__languages {
+    .mat-select-value-text {
+      font-size: 15px;
+      color: #9d9d9d;
+    }
+
+    .mat-select-arrow {
+      color: #9d9d9d;
+    }
+  }
+}
+
+.mat-select-panel {
+  background-color: #ff9900;
+}

@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from './services/auth.service';
+import { PagesService } from './services/pages.service';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +12,9 @@ import { AuthService } from './services/auth.service';
 export class AppComponent implements OnInit {
 
   constructor(private translate: TranslateService,
+              private pagesService: PagesService,
               private authService: AuthService) {
-    translate.addLangs(['en', 'ua']);
+    this.initLang();
     translate.setDefaultLang('en');
   }
 
@@ -25,7 +27,9 @@ export class AppComponent implements OnInit {
     this.authService.setLoginState(!!userData);
   }
 
-  changeLanguage(key: string) {
-    this.translate.use(key);
+  initLang() {
+    this.translate.addLangs(['en', 'ua']);
+    const selectedLang = localStorage.getItem('lang');
+    this.pagesService.changeLanguage(selectedLang ? selectedLang : 'en');
   }
 }

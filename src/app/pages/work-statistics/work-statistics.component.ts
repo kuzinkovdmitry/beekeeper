@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {PagesService} from '../../services/pages.service';
 
 @Component({
   selector: 'app-work-statistics',
@@ -8,7 +9,9 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class WorkStatisticsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private pagesService: PagesService) {
+    this.pagesService.setPageUrl('work-statistics');
+  }
 
   ngOnInit(): void {
   }

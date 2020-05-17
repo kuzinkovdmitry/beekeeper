@@ -17,4 +17,38 @@ mat-icon {
     color: #3f51b5;
     cursor: pointer;
   }
+
+  &.login__back-icon {
+    height: 50px;
+    width: 50px;
+    margin-right: 10px;
+  }
+
+  &.pages__logo {
+    height: 50px !important;
+    width: 50px !important;
+    color: #ff9900;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+      color: #b36b00;
+    }
+  }
+
+  &.pages__login-state-icon {
+    height: 22px !important;
+    width: 22px !important;
+    margin-right: 10px;
+    color: #808080;
+  }
+
+  &.pages__lock-icon {
+    position: absolute;
+    width: 15px !important;
+    height: 15px !important;
+    right: 0;
+    top: 12px;
+    color: #ff9900;
+  }
 }

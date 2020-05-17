@@ -3,20 +3,34 @@ import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {HiveStatisticsComponent} from './hive-statistics/hive-statistics.component';
 import {WorkStatisticsComponent} from './work-statistics/work-statistics.component';
-import {ModifyWorkerComponent} from './modify-worker/modify-worker.component';
-import {AddWorkerComponent} from './add-worker/add-worker.component';
+import {WorkerComponent} from './worker/worker.component';
 import {PagesComponent} from './pages.component';
+import {AuthGuard} from '../guards/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: PagesComponent,
     children: [
-      {path: '', component: HomeComponent},
-      {path: 'hive-statistics', component: HiveStatisticsComponent},
-      {path: 'work-statistics', component: WorkStatisticsComponent},
-      {path: 'modify-worker', component: ModifyWorkerComponent},
-      {path: 'add-worker', component: AddWorkerComponent}
+      {
+        path: '',
+        component: HomeComponent
+      },
+      {
+        path: 'hive-statistics',
+        component: HiveStatisticsComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'work-statistics',
+        component: WorkStatisticsComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'worker',
+        component: WorkerComponent,
+        canActivate: [AuthGuard]
+      }
     ]
   }
 ];

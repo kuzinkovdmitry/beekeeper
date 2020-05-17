@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { PagesService } from '../../services/pages.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,9 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private pagesService: PagesService) {
+    this.pagesService.setPageUrl('home');
+  }
 
   ngOnInit(): void {
   }

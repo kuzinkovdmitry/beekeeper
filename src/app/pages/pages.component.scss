@@ -1,11 +1,107 @@
 :host {
   display: block;
-  height: 100vh;
+  min-height: 100vh;
+  overflow-y: auto;
 }
 
 .pages {
   &__header {
-    height: 60px;
-    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    padding: 0 40px;
+    background-color: #222222;
+
+    &-left,
+    &-right {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    height: 100%;
+    margin-left: 40px;
+
+    &-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      margin: 0;
+      padding: 0 20px;
+      font-size: 15px;
+      text-decoration: none;
+      color: #9d9d9d;
+      cursor: pointer;
+      outline: none;
+
+      &:hover {
+        color: #b36b00;
+      }
+
+      &.__active {
+        background-color: #080808;
+        color: #ff9900;
+      }
+
+      &.__disabled {
+        pointer-events: none;
+        cursor: not-allowed;
+        user-select: none;
+        opacity: .5;
+
+        &:hover {
+          color: #9d9d9d;
+        }
+      }
+    }
+  }
+
+  &__login-state {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+      .pages__login-state-icon,
+      .pages__login-state-text {
+        color: #b36b00;
+      }
+    }
+
+    &-text {
+      font-size: 15px;
+      color: #9d9d9d;
+    }
+  }
+
+  &__lang-block {
+    display: flex;
+    align-items: center;
+  }
+
+  &__languages {
+    width: 100px;
+    margin-right: 20px;
+  }
+
+  &__lang-item-flag {
+    width: 20px;
+  }
+
+  &__selected-lang {
+    width: 30px;
+    margin-right: 10px;
+  }
+
+  &__hello-message {
+    margin: 0 20px 0 0;
+    font-size: 15px;
+    color: #9d9d9d;
   }
 }

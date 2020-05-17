@@ -1,5 +1,14 @@
 {
   "email": "Email",
   "password": "Пароль",
-  "log-in": "Увійти"
+  "log-in": "Увійти",
+  "log-out": "Вийти",
+  "back-to-home": "Назад до Домашньої сторінки",
+  "menu-home": "Головна",
+  "menu-hive-statistics": "Статистика вуликів",
+  "menu-work-statistics": "Статистика робіт",
+  "menu-worker": "Робітники",
+  "welcome": "Ласкаво просимо",
+  "wrong-email-data": "Неправильний email чи пароль! Спробуйте ще раз!",
+  "wrong-services": "Сервіси зараз не працюють!"
 }
