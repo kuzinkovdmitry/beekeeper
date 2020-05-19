@@ -10,5 +10,16 @@
   "menu-worker": "Workers",
   "welcome": "Welcome",
   "wrong-email-data": "Your email or password was incorrect! Try again!",
-  "wrong-services": "Services are not available now!"
+  "wrong-services": "Services are not available now!",
+  "how-it-works": "How it works",
+  "sensors-gather": "Sensor gather information",
+  "worker-works": "Worker works in the apiary using mobile phone",
+  "admin-works": "Admin works with statistics",
+  "our-advantages": "Our advantages",
+  "device-quick-work": "Quick work of devices",
+  "intuitive-interface": "Intuitive interface",
+  "swarm-prediction": "Swarm prediction",
+  "beehive-tracking": "Beehive tracking",
+  "about-us": "About us",
+  "our-project": "Our project is used to manage beehives. You can find useful information about your farm on this website. To manage bees, download our app from Google Play."
 }

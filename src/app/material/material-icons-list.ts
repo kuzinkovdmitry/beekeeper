@@ -11,4 +11,13 @@ export const MATERIAL_ICONS_LIST: IMatIcon[] = [
   { name: 'sign-in', src: defaultPath },
   { name: 'sign-out', src: defaultPath },
   { name: 'lock', src: defaultPath },
+  { name: 'hive', src: defaultPath },
+  { name: 'mobile', src: defaultPath },
+  { name: 'chart-line', src: defaultPath },
+  { name: 'clock', src: defaultPath },
+  { name: 'image', src: defaultPath },
+  { name: 'bee', src: defaultPath },
+  { name: 'sun', src: defaultPath },
+  { name: 'phone', src: defaultPath },
+  { name: 'email', src: defaultPath }
 ];

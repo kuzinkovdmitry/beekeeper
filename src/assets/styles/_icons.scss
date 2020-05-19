@@ -51,4 +51,15 @@ mat-icon {
     top: 12px;
     color: #ff9900;
   }
+
+  &.home__grid-item-icon {
+    height: 100px;
+    width: 100px;
+  }
+
+  &.home__contacts-item-icon {
+    height: 35px;
+    width: 35px;
+    margin-right: 20px;
+  }
 }
