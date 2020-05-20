@@ -1,1 +1,36 @@
-<p>hive-statistics works!</p>
+<p class="hive-statistics__title">{{'menu-hive-statistics' | translate}}</p>
+<div class="hive-statistics__main"
+     *ngIf="!isLoading"
+     [ngClass]="{'__disabled': isBeehiveRemoving}">
+  <div class="hive-statistics__header">
+    <p>ID</p>
+    <p>{{'coordinates' | translate}}</p>
+    <p>{{'frame-amount' | translate}}</p>
+    <p>{{'bee-amount' | translate}}</p>
+    <p>{{'humidity-in-beehive' | translate}}</p>
+    <p>{{'oxygen-in-beehive' | translate}}</p>
+    <p>{{'temp-in-beehive' | translate}}</p>
+    <p>{{'swarming' | translate}}</p>
+    <p>{{'delete' | translate}}</p>
+  </div>
+  <div class="hive-statistics__body">
+    <div class="hive-statistics__item"
+         *ngFor="let item of hiveData">
+      <p>{{item.id}}</p>
+      <p>{{item.beehiveValue.coordinates}}</p>
+      <p>{{item.beehiveValue.amountOfFrames}}</p>
+      <p>{{item.beehiveValue.amountValue.value}}</p>
+      <p>{{item.beehiveValue.humidityValue.value}}</p>
+      <p>{{item.beehiveValue.oxygenValue.value}}</p>
+      <p>{{item.beehiveValue.temperatureValue.value}}</p>
+      <p>{{item.swarming ? '+' : '-'}}</p>
+      <p>
+        <mat-icon svgIcon="delete"
+                  class="hive-statistics__delete-icon"
+                  (click)="openRemoveConfirmDialog(item.id)">
+        </mat-icon>
+      </p>
+    </div>
+  </div>
+</div>
+<mat-spinner class="hive-statistics" *ngIf="isLoading || isBeehiveRemoving"></mat-spinner>

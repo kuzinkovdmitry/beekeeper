@@ -21,5 +21,16 @@
   "swarm-prediction": "Swarm prediction",
   "beehive-tracking": "Beehive tracking",
   "about-us": "About us",
-  "our-project": "Our project is used to manage beehives. You can find useful information about your farm on this website. To manage bees, download our app from Google Play."
+  "our-project": "Our project is used to manage beehives. You can find useful information about your farm on this website. To manage bees, download our app from Google Play.",
+  "coordinates": "Coordinates",
+  "frame-amount": "Frame amount",
+  "bee-amount": "Bee amount",
+  "humidity-in-beehive": "Humidity in beehive",
+  "oxygen-in-beehive": "Oxygen in beehive",
+  "temp-in-beehive": "Temperature in beehive",
+  "swarming": "Swarming",
+  "delete": "Delete",
+  "beehive-remove-confirm": "Do you really want to delete this beehive?",
+  "yes": "Yes",
+  "no": "No"
 }

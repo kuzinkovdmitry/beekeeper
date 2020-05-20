@@ -1,0 +1,12 @@
+.remove-confirm {
+  &__text {
+    text-align: center;
+    font-size: 18px;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
