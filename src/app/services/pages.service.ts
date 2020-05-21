@@ -35,6 +35,10 @@ export class PagesService {
     return this.http.get(`${BASE_URL}currentBeehive/getAllInfo`);
   }
 
+  addBeehive(beehiveData) {
+    return this.http.get(`${BASE_URL}currentBeehive/add?frame=${beehiveData.amountOfFrames}&coord=${beehiveData.coordinates}`);
+  }
+
   removeBeehive(id: number) {
     return this.http.get(`${BASE_URL}currentBeehive/delete?id=${id}`);
   }

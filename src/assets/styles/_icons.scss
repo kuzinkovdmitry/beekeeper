@@ -68,4 +68,11 @@ mat-icon {
     width: 20px;
     cursor: pointer;
   }
+
+  &.add-beehive__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+  }
 }

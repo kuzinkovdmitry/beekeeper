@@ -8,11 +8,14 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RemoveConfirmComponent } from './components/dialogs/remove-confirm/remove-confirm.component';
+import { AddBeehiveComponent } from './components/dialogs/add-beehive/add-beehive.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RemoveConfirmComponent
+    RemoveConfirmComponent,
+    AddBeehiveComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,8 @@ import { RemoveConfirmComponent } from './components/dialogs/remove-confirm/remo
         useFactory: httpTranslateLoader,
         deps: [HttpClient]
       }
-    })
+    }),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,35 @@
+<p class="add-beehive__title">{{'new-beehive' | translate}}</p>
+<mat-icon svgIcon="delete"
+          class="add-beehive__close"
+          (click)="closeDialog()">
+</mat-icon>
+<div class="add-beehive__form"
+     [formGroup]="addBeehiveForm">
+  <mat-form-field floatLabel="auto"
+                  class="add-beehive__field"
+                  appearance="outline">
+    <mat-label>{{'frame-amount' | translate}}</mat-label>
+    <input matInput
+           formControlName="amountOfFrames">
+  </mat-form-field>
+  <mat-form-field floatLabel="auto"
+                  class="add-beehive__field"
+                  appearance="outline">
+    <mat-label>{{'latitude' | translate}}</mat-label>
+    <input matInput
+           formControlName="latitude">
+  </mat-form-field>
+  <mat-form-field floatLabel="auto"
+                  class="add-beehive__field"
+                  appearance="outline">
+    <mat-label>{{'longitude' | translate}}</mat-label>
+    <input matInput
+           formControlName="longitude">
+  </mat-form-field>
+  <button mat-raised-button
+          [disabled]="!addBeehiveForm.valid"
+          (click)="addBeehive()"
+          class="add-beehive__add-button">
+    {{'add' | translate}}
+  </button>
+</div>

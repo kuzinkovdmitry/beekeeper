@@ -1,0 +1,21 @@
+:host {
+  display: block;
+  position: relative;
+}
+
+.add-beehive {
+  &__title {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  &__form {
+    margin-top: 40px;
+  }
+
+  &__add-button {
+    width: 100px;
+    margin-top: 20px;
+    font-size: 16px;
+  }
+}

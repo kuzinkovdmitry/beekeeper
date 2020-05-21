@@ -1,8 +1,9 @@
-import {Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef} from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { PagesService } from '../../services/pages.service';
 import { MatDialog } from '@angular/material/dialog';
-import {RemoveConfirmComponent} from '../../components/dialogs/remove-confirm/remove-confirm.component';
+import { RemoveConfirmComponent } from '../../components/dialogs/remove-confirm/remove-confirm.component';
 import { TranslateService } from '@ngx-translate/core';
+import { AddBeehiveComponent } from '../../components/dialogs/add-beehive/add-beehive.component';
 
 @Component({
   selector: 'app-hive-statistics',
@@ -12,7 +13,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HiveStatisticsComponent implements OnInit {
   isLoading = true;
-  isBeehiveRemoving: boolean;
+  isBeehiveUpdating: boolean;
   hiveData: any;
 
   constructor(private pagesService: PagesService,
@@ -43,20 +44,45 @@ export class HiveStatisticsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((isRemove: boolean) => {
       if (isRemove) {
-        this.isBeehiveRemoving = true;
+        this.isBeehiveUpdating = true;
         this.cdRef.detectChanges();
         this.removeBeehive(beehiveId);
       }
     });
   }
 
+  openAddBeehiveDialog() {
+    const dialogRef = this.dialog.open(AddBeehiveComponent, {
+      width: '800px',
+    });
+
+    dialogRef.afterClosed().subscribe((data) => {
+      if (data) {
+        const beehiveData = {
+          amountOfFrames: data.amountOfFrames,
+          coordinates: `${data.latitude}, ${data.longitude}`
+        };
+        this.isBeehiveUpdating = true;
+        this.cdRef.detectChanges();
+        this.addBeehive(beehiveData);
+      }
+    });
+  }
+
+  addBeehive(beehiveData) {
+    this.isBeehiveUpdating = true;
+    this.pagesService.addBeehive(beehiveData).subscribe(data => {
+      this.hiveData.push(data);
+      this.isBeehiveUpdating = false;
+      this.cdRef.detectChanges();
+    });
+  }
+
   removeBeehive(beehiveId: number) {
     this.pagesService.removeBeehive(beehiveId).subscribe(data => {
-      if (data) {
-        this.hiveData = this.hiveData.filter(item => item.id !== beehiveId);
-        this.isBeehiveRemoving = false;
-        this.cdRef.detectChanges();
-      }
+      this.hiveData = this.hiveData.filter(item => item.id !== beehiveId);
+      this.isBeehiveUpdating = false;
+      this.cdRef.detectChanges();
     });
   }
 }

@@ -32,5 +32,10 @@
   "delete": "Delete",
   "beehive-remove-confirm": "Do you really want to delete this beehive?",
   "yes": "Yes",
-  "no": "No"
+  "no": "No",
+  "add": "Add",
+  "add-new-beehive": "Add new beehive",
+  "new-beehive": "New beehive",
+  "latitude": "Latitude",
+  "longitude": "Longitude"
 }
