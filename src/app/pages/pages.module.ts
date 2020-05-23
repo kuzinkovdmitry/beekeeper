@@ -9,6 +9,7 @@ import {HiveStatisticsComponent} from './hive-statistics/hive-statistics.compone
 import {MaterialModule} from '../material/material.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {TranslateModule} from '@ngx-translate/core';
+import {ChartModule} from 'angular-highcharts';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {TranslateModule} from '@ngx-translate/core';
   ],
   imports: [
     CommonModule,
+    ChartModule,
     MaterialModule,
     ReactiveFormsModule,
     TranslateModule,

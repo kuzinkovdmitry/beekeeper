@@ -69,7 +69,9 @@ export class PagesComponent implements OnInit {
 
   initLanguage() {
     const selectedLang = this.pagesService.getSelectedLang();
-    this.languageControl.setValue(selectedLang);
+    this.languageControl.setValue(selectedLang, {emitEvent: false});
+    this.selectedLang = selectedLang;
+    this.pagesService.initLanguageState(selectedLang);
   }
 
   checkLanguageControlChanges() {

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { BASE_URL } from '../data/base-url';
@@ -9,6 +9,7 @@ import { BASE_URL } from '../data/base-url';
 })
 export class PagesService {
   pagesUrl: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  selectedLang: Subject<string> = new Subject<string>();
 
   constructor(private translate: TranslateService,
               private http: HttpClient) {
@@ -26,9 +27,15 @@ export class PagesService {
     return localStorage.getItem('userData');
   }
 
+  initLanguageState(key: string) {
+    this.translate.use(key);
+    localStorage.setItem('lang', key);
+  }
+
   changeLanguage(key: string) {
     this.translate.use(key);
     localStorage.setItem('lang', key);
+    this.selectedLang.next(key);
   }
 
   getBeehiveStatistics() {
@@ -41,5 +48,9 @@ export class PagesService {
 
   removeBeehive(id: number) {
     return this.http.get(`${BASE_URL}currentBeehive/delete?id=${id}`);
+  }
+
+  getWorkStatisticData(startDate: string, endDate: string) {
+    return this.http.get(`${BASE_URL}workingHours/byPeriod?startDate=${startDate}&endDate=${endDate}`);
   }
 }

@@ -30,6 +30,6 @@ export class AppComponent implements OnInit {
   initLang() {
     this.translate.addLangs(['en', 'ua']);
     const selectedLang = localStorage.getItem('lang');
-    this.pagesService.changeLanguage(selectedLang ? selectedLang : 'en');
+    this.pagesService.initLanguageState(selectedLang ? selectedLang : 'en');
   }
 }

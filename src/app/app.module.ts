@@ -9,7 +9,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RemoveConfirmComponent } from './components/dialogs/remove-confirm/remove-confirm.component';
 import { AddBeehiveComponent } from './components/dialogs/add-beehive/add-beehive.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [

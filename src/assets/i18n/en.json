@@ -37,5 +37,10 @@
   "add-new-beehive": "Add new beehive",
   "new-beehive": "New beehive",
   "latitude": "Latitude",
-  "longitude": "Longitude"
+  "longitude": "Longitude",
+  "work-statistics-graph": "Work statistics chart",
+  "10d": "10 days",
+  "20d": "20 days",
+  "30d": "30 days",
+  "hours": "hours"
 }

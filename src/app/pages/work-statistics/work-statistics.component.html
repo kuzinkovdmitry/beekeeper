@@ -1,1 +1,14 @@
-<p>work-statistics works!</p>
+<p class="work-statistics__title">{{'menu-work-statistics' | translate}}</p>
+<div class="work-statistics__first-graph">
+  <p class="work-statistics__first-graph-title">{{'work-statistics-graph' | translate}}</p>
+  <div class="work-statistics__period">
+    <p class="work-statistics__period-item"
+       [ngClass]="{'__active': item.active}"
+       *ngFor="let item of CHART_PERIOD"
+       (click)="changeWorkStatisticPeriod(item)">
+      {{item.value + 'd' | translate}}
+    </p>
+  </div>
+  <div [chart]="workStatisticsChart" class="work-statistics__chart"></div>
+</div>
+
