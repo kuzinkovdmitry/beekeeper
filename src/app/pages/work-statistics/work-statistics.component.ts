@@ -5,7 +5,7 @@ import { CHART_CONFIG } from '../../data/chart-config';
 import { CHART_PERIOD } from '../../data/chart-period';
 import * as moment from 'moment';
 import { TranslateService } from '@ngx-translate/core';
-import {skip, takeUntil} from 'rxjs/operators';
+import { takeUntil} from 'rxjs/operators';
 import { NgOnDestroy } from '../../services/destroy.service';
 
 @Component({
@@ -20,6 +20,7 @@ export class WorkStatisticsComponent implements OnInit {
   workStatisticsChartData;
   workStatisticsChartConfig;
   CHART_PERIOD = CHART_PERIOD;
+  isLoading = true;
 
   constructor(private pagesService: PagesService,
               private translateService: TranslateService,
@@ -43,11 +44,14 @@ export class WorkStatisticsComponent implements OnInit {
   }
 
   private getWorkStatisticsData(periodValue: number) {
+    this.isLoading = true;
+    this.cdRef.detectChanges();
     const endDate = moment(new Date()).format('YYYY-MM-DD');
     const startDate = moment(endDate).subtract(periodValue - 1, 'days').format('YYYY-MM-DD');
     this.pagesService.getWorkStatisticData(startDate, endDate).subscribe((data: any[]) => {
       this.workStatisticsChartData = data;
       this.setWorkStatisticsChart();
+      this.isLoading = false;
       this.cdRef.detectChanges();
     });
   }

@@ -1,1 +1,37 @@
-<p>worker works!</p>
+<p class="worker__title">{{'menu-worker' | translate}}</p>
+<div class="worker__main"
+     *ngIf="!isLoading"
+     [ngClass]="{'__disabled': isWorkersUpdating}">
+  <div class="worker__header">
+    <p>ID</p>
+    <p>{{'name' | translate}}</p>
+    <p>Email</p>
+    <p>{{'Password' | translate}}</p>
+    <p>{{'role' | translate}}</p>
+    <p>{{'passport' | translate}}</p>
+    <p>{{'delete' | translate}}</p>
+  </div>
+  <div class="worker__body">
+    <div class="worker__item"
+         *ngFor="let item of workersData">
+      <p>{{item.id}}</p>
+      <p>{{item.lastName + ' ' + item.firstName}}</p>
+      <p>{{item.email}}</p>
+      <p>{{item.password}}</p>
+      <p>{{item.role.name}}</p>
+      <p>{{item.passport}}</p>
+      <p>
+        <mat-icon svgIcon="delete"
+                  class="hive-statistics__delete-icon"
+                  (click)="openRemoveConfirmDialog(item.id)">
+        </mat-icon>
+      </p>
+    </div>
+  </div>
+  <button mat-button
+          class="worker__add-new"
+          (click)="openAddWorkerDialog()">
+    {{'add-new-worker' | translate}}
+  </button>
+</div>
+<mat-spinner class="hive-statistics" *ngIf="isLoading || isWorkersUpdating"></mat-spinner>

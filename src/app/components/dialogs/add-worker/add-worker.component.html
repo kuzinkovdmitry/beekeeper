@@ -1,0 +1,61 @@
+<p class="add-worker__title">{{'worker-info' | translate}}</p>
+<mat-icon svgIcon="delete"
+          class="add-beehive__close"
+          (click)="closeDialog()">
+</mat-icon>
+<div class="add-worker__form"
+     [formGroup]="addWorkerForm">
+  <mat-form-field floatLabel="auto"
+                  class="add-worker__field"
+                  appearance="outline">
+    <mat-label>{{'name' | translate}}</mat-label>
+    <input matInput
+           formControlName="firstName">
+  </mat-form-field>
+  <mat-form-field floatLabel="auto"
+                  class="add-worker__field"
+                  appearance="outline">
+    <mat-label>{{'surname' | translate}}</mat-label>
+    <input matInput
+           formControlName="lastName">
+  </mat-form-field>
+  <mat-radio-group class="add-worker-radio"
+                   formControlName="role"
+                   color="primary">
+    <mat-label>{{'role' | translate}}: </mat-label>
+    <mat-radio-button value="ADMIN">{{'admin' | translate}}</mat-radio-button>
+    <mat-radio-button value="WORKER">{{'worker' | translate}}</mat-radio-button>
+  </mat-radio-group>
+  <mat-form-field floatLabel="auto"
+                  class="add-worker__field"
+                  appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput
+           formControlName="email">
+  </mat-form-field>
+  <mat-form-field floatLabel="auto"
+                  class="add-worker__field"
+                  appearance="outline">
+    <mat-label>{{'password' | translate}}</mat-label>
+    <input matInput
+           formControlName="password">
+  </mat-form-field>
+  <button mat-raised-button
+          class="add-worker__random-password"
+          (click)="setRandomPassword()">
+    {{'get-password' | translate}}
+  </button>
+  <mat-form-field floatLabel="auto"
+                  class="add-worker__field"
+                  appearance="outline">
+    <mat-label>{{'passport' | translate}}</mat-label>
+    <input matInput
+           formControlName="passport">
+  </mat-form-field>
+  <button mat-raised-button
+          [disabled]="!addWorkerForm.valid"
+          (click)="addWorker()"
+          class="add-worker__add-button">
+    {{'add' | translate}}
+  </button>
+</div>

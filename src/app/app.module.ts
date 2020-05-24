@@ -10,12 +10,14 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RemoveConfirmComponent } from './components/dialogs/remove-confirm/remove-confirm.component';
 import { AddBeehiveComponent } from './components/dialogs/add-beehive/add-beehive.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddWorkerComponent } from './components/dialogs/add-worker/add-worker.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RemoveConfirmComponent,
-    AddBeehiveComponent
+    AddBeehiveComponent,
+    AddWorkerComponent
   ],
   imports: [
     BrowserModule,

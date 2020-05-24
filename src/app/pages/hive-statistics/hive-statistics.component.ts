@@ -79,7 +79,7 @@ export class HiveStatisticsComponent implements OnInit {
   }
 
   removeBeehive(beehiveId: number) {
-    this.pagesService.removeBeehive(beehiveId).subscribe(data => {
+    this.pagesService.removeBeehive(beehiveId).subscribe(() => {
       this.hiveData = this.hiveData.filter(item => item.id !== beehiveId);
       this.isBeehiveUpdating = false;
       this.cdRef.detectChanges();

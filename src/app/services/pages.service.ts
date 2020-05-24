@@ -53,4 +53,12 @@ export class PagesService {
   getWorkStatisticData(startDate: string, endDate: string) {
     return this.http.get(`${BASE_URL}workingHours/byPeriod?startDate=${startDate}&endDate=${endDate}`);
   }
+
+  getWorkers() {
+    return this.http.get(`${BASE_URL}worker/getAll`);
+  }
+
+  removeWorker(id: number) {
+    return this.http.get(`${BASE_URL}worker/delete?id=${id}`);
+  }
 }

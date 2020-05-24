@@ -1,5 +1,6 @@
 <p class="work-statistics__title">{{'menu-work-statistics' | translate}}</p>
-<div class="work-statistics__first-graph">
+<div class="work-statistics__first-graph"
+     *ngIf="!isLoading">
   <p class="work-statistics__first-graph-title">{{'work-statistics-graph' | translate}}</p>
   <div class="work-statistics__period">
     <p class="work-statistics__period-item"
@@ -11,4 +12,5 @@
   </div>
   <div [chart]="workStatisticsChart" class="work-statistics__chart"></div>
 </div>
+<mat-spinner class="hive-statistics" *ngIf="isLoading"></mat-spinner>
 

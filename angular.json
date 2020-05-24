@@ -128,5 +128,8 @@
       }
     }
   },
-  "defaultProject": "beekeeper"
+  "defaultProject": "beekeeper",
+  "cli": {
+    "analytics": false
+  }
 }

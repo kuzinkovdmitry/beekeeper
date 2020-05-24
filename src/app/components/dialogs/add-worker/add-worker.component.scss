@@ -1,0 +1,28 @@
+:host {
+  display: block;
+  position: relative;
+}
+
+.add-worker {
+  &__title {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+  }
+
+  &__random-password {
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+
+  &__add-button {
+    width: 100px;
+    margin-top: 20px;
+    font-size: 16px;
+  }
+}
