@@ -61,4 +61,12 @@ export class PagesService {
   removeWorker(id: number) {
     return this.http.get(`${BASE_URL}worker/delete?id=${id}`);
   }
+
+  addWorker(workerData) {
+    return this.http.post(`${BASE_URL}worker/add`, workerData);
+  }
+
+  editWorker(workerData) {
+    return this.http.post(`${BASE_URL}worker/update`, workerData);
+  }
 }

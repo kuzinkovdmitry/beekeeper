@@ -30,6 +30,7 @@
   "temp-in-beehive": "Temperature in beehive",
   "swarming": "Swarming",
   "delete": "Delete",
+  "edit": "Edit",
   "beehive-remove-confirm": "Do you really want to delete this beehive?",
   "worker-remove-confirm": "Do you really want to delete this worker?",
   "yes": "Yes",
@@ -53,5 +54,7 @@
   "passport": "Passport",
   "admin": "Admin",
   "worker": "Worker",
-  "get-password": "Get password"
+  "get-password": "Get password",
+  "add-worker-info": "Add worker information",
+  "edit-worker-info": "Edit worker information"
 }

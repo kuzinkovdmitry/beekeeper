@@ -1,9 +1,8 @@
 import {Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef} from '@angular/core';
 import { PagesService } from '../../services/pages.service';
-import {RemoveConfirmComponent} from "../../components/dialogs/remove-confirm/remove-confirm.component";
-import {TranslateService} from "@ngx-translate/core";
-import {MatDialog} from "@angular/material/dialog";
-import {AddBeehiveComponent} from '../../components/dialogs/add-beehive/add-beehive.component';
+import {RemoveConfirmComponent} from '../../components/dialogs/remove-confirm/remove-confirm.component';
+import {TranslateService} from '@ngx-translate/core';
+import {MatDialog} from '@angular/material/dialog';
 import {AddWorkerComponent} from '../../components/dialogs/add-worker/add-worker.component';
 
 @Component({
@@ -32,7 +31,6 @@ export class WorkerComponent implements OnInit {
     this.isLoading = true;
     this.cdRef.detectChanges();
     this.pagesService.getWorkers().subscribe(data => {
-      console.log(data);
       this.workersData = data;
       this.isLoading = false;
       this.cdRef.detectChanges();
@@ -63,21 +61,45 @@ export class WorkerComponent implements OnInit {
     });
   }
 
-  openAddWorkerDialog() {
+  addWorker(workerData) {
+    this.pagesService.addWorker(workerData).subscribe(data => {
+      this.workersData.push(data);
+      this.isWorkersUpdating = false;
+      this.cdRef.detectChanges();
+    });
+  }
+
+  editWorker(workerData) {
+    this.pagesService.editWorker(workerData).subscribe(data => {
+      this.workersData = this.workersData.map(worker => worker.id === workerData.id ? workerData : worker);
+      this.isWorkersUpdating = false;
+      this.cdRef.detectChanges();
+    });
+  }
+
+  openAddWorkerDialog(userData?) {
+    const editUserData = {...userData};
+    const isEditMode = Object.keys(editUserData).length;
+    if (isEditMode) {
+      editUserData.role = editUserData.role.name;
+    }
     const dialogRef = this.dialog.open(AddWorkerComponent, {
       width: '800px',
+      data: {
+        editUserData: isEditMode ? editUserData : undefined,
+        isEditMode: !!isEditMode
+      }
     });
 
     dialogRef.afterClosed().subscribe((data) => {
       if (data) {
         data.role = {
-          id: 0,
+          id: data.role === 'ADMIN' ? 7282 : 7289,
           name: data.role
         };
-        console.log(data);
-        // this.isWorkersUpdating = true;
+        this.isWorkersUpdating = true;
         this.cdRef.detectChanges();
-        // this.addBeehive(beehiveData);
+        isEditMode ? this.editWorker(data) : this.addWorker(data);
       }
     });
   }

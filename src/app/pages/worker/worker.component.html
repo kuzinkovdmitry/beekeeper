@@ -9,6 +9,7 @@
     <p>{{'Password' | translate}}</p>
     <p>{{'role' | translate}}</p>
     <p>{{'passport' | translate}}</p>
+    <p>{{'edit' | translate}}</p>
     <p>{{'delete' | translate}}</p>
   </div>
   <div class="worker__body">
@@ -20,6 +21,12 @@
       <p>{{item.password}}</p>
       <p>{{item.role.name}}</p>
       <p>{{item.passport}}</p>
+      <p>
+        <mat-icon svgIcon="edit"
+                  class="hive-statistics__delete-icon"
+                  (click)="openAddWorkerDialog(item)">
+        </mat-icon>
+      </p>
       <p>
         <mat-icon svgIcon="delete"
                   class="hive-statistics__delete-icon"

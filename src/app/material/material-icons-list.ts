@@ -20,5 +20,6 @@ export const MATERIAL_ICONS_LIST: IMatIcon[] = [
   { name: 'sun', src: defaultPath },
   { name: 'phone', src: defaultPath },
   { name: 'email', src: defaultPath },
-  { name: 'delete', src: defaultPath }
+  { name: 'delete', src: defaultPath },
+  { name: 'edit', src: defaultPath }
 ];

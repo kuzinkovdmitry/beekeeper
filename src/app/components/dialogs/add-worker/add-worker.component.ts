@@ -1,5 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import {MatDialogRef} from '@angular/material/dialog';
+import {Component, OnInit, ChangeDetectionStrategy, Inject} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -11,10 +11,14 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 export class AddWorkerComponent implements OnInit {
   addWorkerForm: FormGroup;
 
-  constructor(private dialogRef: MatDialogRef<AddWorkerComponent>) { }
+  constructor(private dialogRef: MatDialogRef<AddWorkerComponent>,
+              @Inject(MAT_DIALOG_DATA) public data) { }
 
   ngOnInit() {
     this.initForm();
+    if (this.data.isEditMode) {
+      this.initEditState();
+    }
   }
 
   initForm() {
@@ -31,12 +35,20 @@ export class AddWorkerComponent implements OnInit {
     });
   }
 
+  initEditState() {
+    this.addWorkerForm.patchValue(this.data.editUserData);
+  }
+
   closeDialog() {
     this.dialogRef.close();
   }
 
   addWorker() {
-    this.dialogRef.close(this.addWorkerForm.value);
+    const formValues = this.addWorkerForm.value;
+    if (this.data.isEditMode) {
+      formValues.id = this.data.editUserData.id;
+    }
+    this.dialogRef.close(formValues);
   }
 
   setRandomPassword() {

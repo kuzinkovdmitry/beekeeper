@@ -21,8 +21,9 @@
   }
 
   &__add-button {
-    width: 100px;
+    width: fit-content;
     margin-top: 20px;
+    padding: 0 20px;
     font-size: 16px;
   }
 }

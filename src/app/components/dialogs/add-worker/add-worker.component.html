@@ -56,6 +56,6 @@
           [disabled]="!addWorkerForm.valid"
           (click)="addWorker()"
           class="add-worker__add-button">
-    {{'add' | translate}}
+    {{(data.isEditMode ? 'edit-worker-info' : 'add-worker-info') | translate}}
   </button>
 </div>
