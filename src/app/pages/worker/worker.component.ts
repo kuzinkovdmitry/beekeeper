@@ -70,8 +70,8 @@ export class WorkerComponent implements OnInit {
   }
 
   editWorker(workerData) {
-    this.pagesService.editWorker(workerData).subscribe(data => {
-      this.workersData = this.workersData.map(worker => worker.id === workerData.id ? workerData : worker);
+    this.pagesService.editWorker(workerData).subscribe((data: any) => {
+      this.workersData = this.workersData.map(worker => worker.id === data.id ? data : worker);
       this.isWorkersUpdating = false;
       this.cdRef.detectChanges();
     });

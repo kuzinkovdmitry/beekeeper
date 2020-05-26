@@ -55,8 +55,6 @@
   &__body {
     max-height: calc(100vh - 405px);
     width: 90%;
-    border-left: 1px solid #000000;
-    border-right: 1px solid #000000;
     overflow-y: auto;
   }
 
@@ -65,8 +63,11 @@
     display: flex;
     align-items: center;
     width: 100%;
+    border-left: 1px solid #000000;
+    border-right: 1px solid #000000;
     border-bottom: 1px solid #000000;
     padding: 10px 0;
+    box-sizing: border-box;
 
     p {
       height: 40px;
