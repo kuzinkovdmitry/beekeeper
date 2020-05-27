@@ -1,0 +1,21 @@
+<p class="weather-statistics__title">{{'menu-weather-statistics' | translate}}</p>
+<div class="weather-statistics__graph"
+     *ngIf="!isLoading">
+  <p class="weather-statistics__graph-title">{{'weather-statistics-graph' | translate}}</p>
+  <p *ngIf="weatherStatisticsChartData?.criticalDates.length"
+     class="weather-statistics__warning">
+    {{'weather-warning-text' | translate}}
+    <span *ngFor="let item of weatherStatisticsChartData.criticalDates">{{item}}</span>.
+  </p>
+  <div class="weather-statistics__period">
+    <p class="weather-statistics__period-item"
+       [ngClass]="{'__active': item.active}"
+       *ngFor="let item of CHART_PERIOD"
+       (click)="changeWeatherStatisticPeriod(item)">
+      {{item.value + 'd' | translate}}
+    </p>
+  </div>
+  <div [chart]="weatherStatisticsChart" class="weather-statistics__chart"></div>
+</div>
+<mat-spinner class="hive-statistics" *ngIf="isLoading"></mat-spinner>
+

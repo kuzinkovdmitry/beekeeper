@@ -14,6 +14,13 @@ export const MENU_LIST = [
     mustLogin: true
   },
   {
+    key: 'weather-statistics',
+    url: '/weather-statistics',
+    translate: 'menu-weather-statistics',
+    active: false,
+    mustLogin: true
+  },
+  {
     key: 'work-statistics',
     url: '/work-statistics',
     translate: 'menu-work-statistics',

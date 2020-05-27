@@ -10,6 +10,7 @@ import {MaterialModule} from '../material/material.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {TranslateModule} from '@ngx-translate/core';
 import {ChartModule} from 'angular-highcharts';
+import { WeatherStatisticsComponent } from './weather-statistics/weather-statistics.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {ChartModule} from 'angular-highcharts';
     WorkerComponent,
     HomeComponent,
     WorkStatisticsComponent,
-    HiveStatisticsComponent
+    HiveStatisticsComponent,
+    WeatherStatisticsComponent
   ],
   imports: [
     CommonModule,

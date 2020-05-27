@@ -16,7 +16,7 @@ export const CHART_CONFIG: Highcharts.Options = {
     enabled: false
   },
   xAxis: {
-    categories: ['12.02', '13.02'],
+    categories: [],
     crosshair: {
       width: 1,
       color: '#000000',
@@ -34,10 +34,14 @@ export const CHART_CONFIG: Highcharts.Options = {
     gridLineDashStyle: 'Solid',
     gridLineColor: '#ff9900',
     tickColor: 'transparent',
-    lineColor: '#ff9900'
+    lineColor: '#ff9900',
   },
   yAxis: {
-    max: 24,
+    plotLines: [{
+      color: '#000000',
+      width: 2,
+      value: 0
+    }],
     labels: {
       style: {
         color: '#000000',

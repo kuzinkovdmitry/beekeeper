@@ -6,6 +6,7 @@ import {WorkStatisticsComponent} from './work-statistics/work-statistics.compone
 import {WorkerComponent} from './worker/worker.component';
 import {PagesComponent} from './pages.component';
 import {AuthGuard} from '../guards/auth.guard';
+import {WeatherStatisticsComponent} from './weather-statistics/weather-statistics.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,11 @@ const routes: Routes = [
       {
         path: 'hive-statistics',
         component: HiveStatisticsComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'weather-statistics',
+        component: WeatherStatisticsComponent,
         canActivate: [AuthGuard]
       },
       {

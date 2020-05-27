@@ -8,7 +8,7 @@
   overflow-y: auto;
 }
 
-.work-statistics {
+.weather-statistics {
   &__title {
     margin: 0;
     line-height: 30px;
@@ -21,7 +21,22 @@
     margin-top: 40px;
   }
 
-  &__first-graph {
+  &__warning {
+    margin-top: 60px;
+    font-size: 20px;
+    line-height: 20px;
+
+    span {
+      font-weight: bold;
+      &:not(:last-child) {
+        &::after {
+          content: ', ';
+        }
+      }
+    }
+  }
+
+  &__graph {
     margin-top: 80px;
 
     &-title {

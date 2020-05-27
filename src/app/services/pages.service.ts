@@ -54,6 +54,10 @@ export class PagesService {
     return this.http.get(`${BASE_URL}workingHours/byPeriod?startDate=${startDate}&endDate=${endDate}`);
   }
 
+  getWeatherStatisticData(startDate: string, endDate: string) {
+    return this.http.get(`${BASE_URL}weatherForecast/forGraph?startDate=${startDate}&endDate=${endDate}`);
+  }
+
   getWorkers() {
     return this.http.get(`${BASE_URL}worker/getAll`);
   }

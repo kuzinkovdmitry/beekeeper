@@ -12,3 +12,18 @@ export const CHART_PERIOD = [
     active: false
   }
 ];
+
+export const WEATHER_CHART_PERIOD = [
+  {
+    value: 7,
+    active: true
+  },
+  {
+    value: 14,
+    active: false
+  },
+  {
+    value: 21,
+    active: false
+  }
+];

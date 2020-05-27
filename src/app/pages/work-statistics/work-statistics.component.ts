@@ -37,6 +37,7 @@ export class WorkStatisticsComponent implements OnInit {
   private setWorkStatisticsChart() {
     this.workStatisticsChartConfig = Object.assign(CHART_CONFIG);
     this.changeLanguageCondition();
+    this.workStatisticsChartConfig.yAxis.max = 24;
     this.workStatisticsChartConfig.xAxis.categories = this.getxAxisCategories();
     this.workStatisticsChartConfig.series = this.getSeries();
     this.workStatisticsChart = new Chart(this.workStatisticsChartConfig);

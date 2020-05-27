@@ -7,6 +7,7 @@
   "menu-home": "Home",
   "menu-hive-statistics": "Hive statistics",
   "menu-work-statistics": "Work statistics",
+  "menu-weather-statistics": "Weather statistics",
   "menu-worker": "Workers",
   "welcome": "Welcome",
   "wrong-email-data": "Your email or password was incorrect! Try again!",
@@ -44,6 +45,10 @@
   "latitude": "Latitude",
   "longitude": "Longitude",
   "work-statistics-graph": "Work statistics chart",
+  "weather-statistics-graph": "Weather statistics chart",
+  "7d": "7 days",
+  "14d": "14 days",
+  "21d": "21 days",
   "10d": "10 days",
   "20d": "20 days",
   "30d": "30 days",
@@ -56,5 +61,6 @@
   "worker": "Worker",
   "get-password": "Get password",
   "add-worker-info": "Add worker information",
-  "edit-worker-info": "Edit worker information"
+  "edit-worker-info": "Edit worker information",
+  "weather-warning-text": "These dates will be low temperatures, please hide the hives:"
 }
