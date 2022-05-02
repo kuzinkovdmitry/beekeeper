@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { AuthService } from './services/auth.service';
 import { PagesService } from './services/pages.service';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
