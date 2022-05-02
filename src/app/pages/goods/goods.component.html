@@ -1,0 +1,39 @@
+<p class="goods__title">{{'menu-goods' | translate}}</p>
+<div class="goods__main"
+     *ngIf="!isLoading"
+     [ngClass]="{'__disabled': isGoodsUpdating}">
+  <div class="goods__header">
+    <p>{{'actions' | translate}}</p>
+    <p>{{'good' | translate}}</p>
+    <p>{{'extraction-volume' | translate}}</p>
+    <p>{{'max-volume' | translate}}</p>
+    <p>{{'cost' | translate}} $</p>
+    <p>{{'winterUse' | translate}}</p>
+  </div>
+  <div class="goods__body">
+    <div class="goods__item"
+         *ngFor="let item of goods">
+      <p class="actions">
+        <mat-icon svgIcon="edit"
+                  class="hive-statistics__delete-icon"
+                  (click)="openAddGoodDialog(item)">
+        </mat-icon>
+        <mat-icon svgIcon="delete"
+                  class="hive-statistics__delete-icon"
+                  (click)="openRemoveConfirmDialog(item.id)">
+        </mat-icon>
+      </p>
+      <p>{{item.name}}</p>
+      <p>{{item.restrictions}}</p>
+      <p>{{item.volume}}</p>
+      <p>{{item.cost}}</p>
+      <p>{{item.usedForWinter ? '+' : '-'}}</p>
+    </div>
+  </div>
+  <button mat-button
+          class="goods__add-new"
+          (click)="openAddGoodDialog(false)">
+    {{'add-new-good' | translate}}
+  </button>
+</div>
+<mat-spinner class="hive-statistics" *ngIf="isLoading || isGoodsUpdating"></mat-spinner>

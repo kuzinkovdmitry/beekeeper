@@ -1,3 +1,4 @@
+import { GoodsComponent } from './goods/goods.component';
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './home/home.component';
@@ -7,6 +8,7 @@ import {WorkerComponent} from './worker/worker.component';
 import {PagesComponent} from './pages.component';
 import {AuthGuard} from '../guards/auth.guard';
 import {WeatherStatisticsComponent} from './weather-statistics/weather-statistics.component';
+import { ApiariesComponent } from './apiaries/apiaries.component';
 
 const routes: Routes = [
   {
@@ -35,6 +37,16 @@ const routes: Routes = [
       {
         path: 'worker',
         component: WorkerComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'goods',
+        component: GoodsComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'apiaries',
+        component: ApiariesComponent,
         canActivate: [AuthGuard]
       }
     ]

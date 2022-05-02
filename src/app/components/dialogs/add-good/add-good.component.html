@@ -1,0 +1,45 @@
+<p class="add-good__title">Good information</p>
+<mat-icon svgIcon="delete"
+          class="add-beehive__close"
+          (click)="closeDialog()">
+</mat-icon>
+<div class="add-good__form"
+     [formGroup]="addGoodForm">
+
+  <mat-form-field floatLabel="auto"
+                  class="add-good__field"
+                  appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name">
+  </mat-form-field>
+
+  <mat-form-field floatLabel="auto"
+                  class="add-good__field"
+                  appearance="outline">
+    <mat-label>Volume of extraction</mat-label>
+    <input matInput type="number" formControlName="restrictions">
+  </mat-form-field>
+
+  <mat-form-field floatLabel="auto"
+                  class="add-good__field"
+                  appearance="outline">
+    <mat-label>Max volume</mat-label>
+    <input matInput type="number" formControlName="volume">
+  </mat-form-field>
+
+  <mat-form-field floatLabel="auto"
+                  class="add-good__field"
+                  appearance="outline">
+    <mat-label>Cost</mat-label>
+    <input matInput type="number" formControlName="cost">
+  </mat-form-field>
+
+  <mat-checkbox formControlName="usedForWinter">Use for winter feeding</mat-checkbox>
+
+  <button mat-raised-button
+          [disabled]="!addGoodForm.valid"
+          class="add-good__add-button"
+          (click)="save()">
+    {{data.isEditMode ? 'Edit good information' : 'Add good information'}}
+  </button>
+</div>

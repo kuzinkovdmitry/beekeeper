@@ -11,13 +11,15 @@ import { RemoveConfirmComponent } from './components/dialogs/remove-confirm/remo
 import { AddBeehiveComponent } from './components/dialogs/add-beehive/add-beehive.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddWorkerComponent } from './components/dialogs/add-worker/add-worker.component';
+import { AddGoodComponent } from './components/dialogs/add-good/add-good.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RemoveConfirmComponent,
     AddBeehiveComponent,
-    AddWorkerComponent
+    AddWorkerComponent,
+    AddGoodComponent
   ],
   imports: [
     BrowserModule,

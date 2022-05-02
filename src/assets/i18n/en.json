@@ -9,6 +9,7 @@
   "menu-work-statistics": "Work statistics",
   "menu-weather-statistics": "Weather statistics",
   "menu-worker": "Workers",
+  "menu-apiaries": "Apiaries",
   "welcome": "Welcome",
   "wrong-email-data": "Your email or password was incorrect! Try again!",
   "wrong-services": "Services are not available now!",
@@ -62,5 +63,13 @@
   "get-password": "Get password",
   "add-worker-info": "Add worker information",
   "edit-worker-info": "Edit worker information",
-  "weather-warning-text": "These dates will be low temperatures, please hide the hives:"
+  "weather-warning-text": "These dates will be low temperatures, please hide the hives:",
+  "menu-goods": "Goods",
+  "good": "Good",
+  "extraction-volume": "Volume of extraction",
+  "max-volume": "Max volume",
+  "cost": "Cost",
+  "winterUse": "Use for winter feeding",
+  "actions": "Actions",
+  "add-new-good": "Add new good"
 }

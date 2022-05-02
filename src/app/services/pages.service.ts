@@ -73,4 +73,20 @@ export class PagesService {
   editWorker(workerData) {
     return this.http.post(`${BASE_URL}worker/update`, workerData);
   }
+
+  getGoods() {
+    return this.http.get(`${BASE_URL}goods/getAllGoods`);
+  }
+
+  addGood(goodData) {
+    return this.http.post(`${BASE_URL}goods/add`, goodData);
+  }
+
+  editGood(goodData) {
+    return this.http.put(`${BASE_URL}goods/update`, goodData);
+  }
+
+  deleteGood(id: number) {
+    return this.http.delete(`${BASE_URL}goods/delete?id=${id}`);
+  }
 }

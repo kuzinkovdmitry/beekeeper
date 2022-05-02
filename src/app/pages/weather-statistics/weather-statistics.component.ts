@@ -40,7 +40,6 @@ export class WeatherStatisticsComponent implements OnInit {
     const endDate = moment(new Date()).format('YYYY-MM-DD');
     const startDate = moment(endDate).subtract(periodValue - 1, 'days').format('YYYY-MM-DD');
     this.pagesService.getWeatherStatisticData(startDate, endDate).subscribe((data: any[]) => {
-      console.log(data);
       this.weatherStatisticsChartData = data;
       this.setWeatherStatisticsChart();
       this.isLoading = false;

@@ -11,6 +11,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {TranslateModule} from '@ngx-translate/core';
 import {ChartModule} from 'angular-highcharts';
 import { WeatherStatisticsComponent } from './weather-statistics/weather-statistics.component';
+import { GoodsComponent } from './goods/goods.component';
+import { ApiariesComponent } from './apiaries/apiaries.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { WeatherStatisticsComponent } from './weather-statistics/weather-statist
     HomeComponent,
     WorkStatisticsComponent,
     HiveStatisticsComponent,
-    WeatherStatisticsComponent
+    WeatherStatisticsComponent,
+    GoodsComponent,
+    ApiariesComponent
   ],
   imports: [
     CommonModule,

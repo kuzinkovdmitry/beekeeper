@@ -8,7 +8,7 @@
   overflow-y: auto;
 }
 
-.worker {
+.goods {
   &__title {
     margin: 0;
     line-height: 30px;
@@ -16,7 +16,6 @@
     font-size: 30px;
     text-transform: uppercase;
   }
-
   &__main {
     display: flex;
     flex-direction: column;

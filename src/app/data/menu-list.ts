@@ -33,5 +33,19 @@ export const MENU_LIST = [
     translate: 'menu-worker',
     active: false,
     mustLogin: true
+  },
+  {
+    key: 'goods',
+    url: '/goods',
+    translate: 'menu-goods',
+    active: false,
+    mustLogin: true
+  },
+  {
+    key: 'apiaries',
+    url: '/apiaries',
+    translate: 'menu-apiaries',
+    active: false,
+    mustLogin: true
   }
 ];

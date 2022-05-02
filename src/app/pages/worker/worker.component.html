@@ -3,36 +3,33 @@
      *ngIf="!isLoading"
      [ngClass]="{'__disabled': isWorkersUpdating}">
   <div class="worker__header">
+    <p>{{'actions' | translate}}</p>
     <p>ID</p>
     <p>{{'name' | translate}}</p>
     <p>Email</p>
     <p>{{'password' | translate}}</p>
     <p>{{'role' | translate}}</p>
     <p>{{'passport' | translate}}</p>
-    <p>{{'edit' | translate}}</p>
-    <p>{{'delete' | translate}}</p>
   </div>
   <div class="worker__body">
     <div class="worker__item"
          *ngFor="let item of workersData">
+      <p class="actions">
+        <mat-icon svgIcon="edit"
+                  class="hive-statistics__delete-icon"
+                  (click)="openAddWorkerDialog(item)">
+        </mat-icon>
+        <mat-icon svgIcon="delete"
+                  class="hive-statistics__delete-icon"
+                  (click)="openRemoveConfirmDialog(item.id)">
+        </mat-icon>
+      </p>
       <p>{{item.id}}</p>
       <p>{{item.lastName + ' ' + item.firstName}}</p>
       <p>{{item.email}}</p>
       <p>{{item.password}}</p>
       <p>{{item.role.name}}</p>
       <p>{{item.passport}}</p>
-      <p>
-        <mat-icon svgIcon="edit"
-                  class="hive-statistics__delete-icon"
-                  (click)="openAddWorkerDialog(item)">
-        </mat-icon>
-      </p>
-      <p>
-        <mat-icon svgIcon="delete"
-                  class="hive-statistics__delete-icon"
-                  (click)="openRemoveConfirmDialog(item.id)">
-        </mat-icon>
-      </p>
     </div>
   </div>
   <button mat-button

@@ -1,0 +1,36 @@
+<p class="apiaries__title">Apiaries</p>
+<div class="apiaries__main"
+     *ngIf="!isLoading"
+     [ngClass]="{'__disabled': isApiariesUpdating}">
+  <div class="apiaries__header">
+    <p>{{'actions' | translate}}</p>
+    <p>Hive</p>
+    <p>Common amount of frames</p>
+    <p>Worker</p>
+    <p>Goods</p>
+  </div>
+  <div class="apiaries__body">
+    <div class="apiaries__item"
+         *ngFor="let item of apiaries">
+      <!-- <p class="actions">
+        <mat-icon svgIcon="edit"
+                  class="hive-statistics__delete-icon"
+                  (click)="openAddGoodDialog(item)">
+        </mat-icon>
+        <mat-icon svgIcon="delete"
+                  class="hive-statistics__delete-icon"
+                  (click)="openRemoveConfirmDialog(item.id)">
+        </mat-icon>
+      </p>
+      <p>{{item.name}}</p>
+      <p>{{item.restrictions}}</p>
+      <p>{{item.volume}}</p>
+      <p>{{item.cost}}</p>
+      <p>{{item.usedForWinter ? '+' : '-'}}</p> -->
+    </div>
+  </div>
+  <button mat-button class="apiaries__add-new">
+    Add apiary
+  </button>
+</div>
+<mat-spinner class="hive-statistics" *ngIf="isLoading || isApiariesUpdating"></mat-spinner>
