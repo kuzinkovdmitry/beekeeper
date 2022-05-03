@@ -74,8 +74,8 @@ export class PagesService {
     return this.http.post(`${BASE_URL}worker/update`, workerData);
   }
 
-  getGoods() {
-    return this.http.get(`${BASE_URL}goods/getAllGoods`);
+  getGoods(id) {
+    return this.http.get(`${BASE_URL}goods/getAllGoods?id=${id}`);
   }
 
   addGood(goodData) {
@@ -88,5 +88,9 @@ export class PagesService {
 
   deleteGood(id: number) {
     return this.http.delete(`${BASE_URL}goods/delete?id=${id}`);
+  }
+
+  getApiaries() {
+    return this.http.get(`${BASE_URL}apiary/getAllApiaries`);
   }
 }

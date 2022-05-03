@@ -11,9 +11,11 @@ import { PagesService } from 'src/app/services/pages.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GoodsComponent implements OnInit {
-  isLoading = false;
+  isLoading = true;
   isGoodsUpdating: boolean;
   goods: any[];
+  apiaries;
+  selectedApiary;
 
   constructor(private pagesService: PagesService,
               private dialog: MatDialog,
@@ -22,7 +24,7 @@ export class GoodsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getGoods();
+    this.getApiaries();
   }
 
   public openAddGoodDialog(good?): void {
@@ -35,6 +37,7 @@ export class GoodsComponent implements OnInit {
       if (data) {
         this.isGoodsUpdating = true;
         this.cdRef.detectChanges();
+        data.apiaryValue = this.selectedApiary;
         good ? this.editGood(data) : this.addGood(data);
       }
     });
@@ -79,9 +82,19 @@ export class GoodsComponent implements OnInit {
     });
   }
 
-  private getGoods(): void {
-    this.pagesService.getGoods().subscribe((data: any[]) => {
+  private getApiaries(): void {
+    this.pagesService.getApiaries().subscribe(data => {
+      this.apiaries = data;
+      this.isLoading = false;
+      this.cdRef.detectChanges();
+    });
+  }
+
+  public getGoods(): void {
+    this.isLoading = true;
+    this.pagesService.getGoods(this.selectedApiary.id).subscribe((data: any[]) => {
       this.goods = data;
+      this.isLoading = false;
       this.cdRef.detectChanges();
     });
   }

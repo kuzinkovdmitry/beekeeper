@@ -1,6 +1,16 @@
 <p class="goods__title">{{'menu-goods' | translate}}</p>
+<div class="apiaries">
+  <mat-form-field appearance="fill">
+    <mat-label>Select apiary</mat-label>
+    <mat-select [(value)]="selectedApiary" (selectionChange)="getGoods()">
+      <mat-option *ngFor="let apiary of apiaries" [value]="apiary">
+        {{'Apiary ' + apiary.id}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
 <div class="goods__main"
-     *ngIf="!isLoading"
+     *ngIf="!isLoading && selectedApiary"
      [ngClass]="{'__disabled': isGoodsUpdating}">
   <div class="goods__header">
     <p>{{'actions' | translate}}</p>

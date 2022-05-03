@@ -9,7 +9,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RemoveConfirmComponent } from './components/dialogs/remove-confirm/remove-confirm.component';
 import { AddBeehiveComponent } from './components/dialogs/add-beehive/add-beehive.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { AddWorkerComponent } from './components/dialogs/add-worker/add-worker.component';
 import { AddGoodComponent } from './components/dialogs/add-good/add-good.component';
 
@@ -34,7 +34,8 @@ import { AddGoodComponent } from './components/dialogs/add-good/add-good.compone
         deps: [HttpClient]
       }
     }),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,7 +7,7 @@ import {HomeComponent} from './home/home.component';
 import {WorkStatisticsComponent} from './work-statistics/work-statistics.component';
 import {HiveStatisticsComponent} from './hive-statistics/hive-statistics.component';
 import {MaterialModule} from '../material/material.module';
-import {ReactiveFormsModule} from '@angular/forms';
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import {TranslateModule} from '@ngx-translate/core';
 import {ChartModule} from 'angular-highcharts';
 import { WeatherStatisticsComponent } from './weather-statistics/weather-statistics.component';
@@ -29,9 +29,10 @@ import { ApiariesComponent } from './apiaries/apiaries.component';
     CommonModule,
     ChartModule,
     MaterialModule,
+    FormsModule,
     ReactiveFormsModule,
     TranslateModule,
-    PagesRoutingModule,
+    PagesRoutingModule
   ],
   providers: []
 })
