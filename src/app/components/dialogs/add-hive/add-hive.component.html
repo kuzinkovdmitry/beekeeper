@@ -1,0 +1,42 @@
+<p class="add-hive__title">Hive information</p>
+<mat-icon svgIcon="delete"
+          class="add-beehive__close"
+          (click)="closeDialog()">
+</mat-icon>
+<div class="add-hive__form"
+     [formGroup]="addHiveForm">
+
+     <mat-form-field appearance="fill">
+      <mat-label>Select hive</mat-label>
+      <mat-select formControlName="hive">
+        <mat-option *ngFor="let hive of hives" [value]="hive.id">
+          {{'Hive ' + hive.id}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Select good</mat-label>
+      <mat-select formControlName="good">
+        <mat-option *ngFor="let good of goods" [value]="good.id">
+          {{good.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Select worker</mat-label>
+      <mat-select formControlName="worker">
+        <mat-option *ngFor="let worker of workers" [value]="worker.id">
+          {{worker.lastName + ' ' + worker.firstName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  <button mat-raised-button
+          [disabled]="!addHiveForm.valid"
+          class="add-hive__add-button"
+          (click)="save()">
+    {{data.isEditMode ? 'Edit hive information' : 'Add hive information'}}
+  </button>
+</div>

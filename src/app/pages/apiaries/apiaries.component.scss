@@ -20,7 +20,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 80px;
+    margin-top: 40px;
 
     &.__disabled {
       pointer-events: none;
@@ -90,4 +90,8 @@
     font-size: 16px;
     background-color: #ff9900;
   }
+}
+
+.apiaries {
+  padding: 40px 5% 0;
 }

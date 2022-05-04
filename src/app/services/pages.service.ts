@@ -93,4 +93,16 @@ export class PagesService {
   getApiaries() {
     return this.http.get(`${BASE_URL}apiary/getAllApiaries`);
   }
+
+  getHives(id) {
+    return this.http.get(`${BASE_URL}goodsExtraction/getAllGoodsExtractionByApiary?id=${id}`);
+  }
+
+  getBeehives(id) {
+    return this.http.get(`${BASE_URL}beehive/byAppiaryId?id=${id}`);
+  }
+
+  addHive(hiveId: number, goodId: number, workerId: number) {
+    return this.http.get(`${BASE_URL}goodsExtraction/add?goodsId=${goodId}&beehiveId=${hiveId}&workerId=${workerId}`);
+  }
 }

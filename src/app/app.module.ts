@@ -12,6 +12,7 @@ import { AddBeehiveComponent } from './components/dialogs/add-beehive/add-beehiv
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { AddWorkerComponent } from './components/dialogs/add-worker/add-worker.component';
 import { AddGoodComponent } from './components/dialogs/add-good/add-good.component';
+import { AddHiveComponent } from './components/dialogs/add-hive/add-hive.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AddGoodComponent } from './components/dialogs/add-good/add-good.compone
     RemoveConfirmComponent,
     AddBeehiveComponent,
     AddWorkerComponent,
-    AddGoodComponent
+    AddGoodComponent,
+    AddHiveComponent
   ],
   imports: [
     BrowserModule,

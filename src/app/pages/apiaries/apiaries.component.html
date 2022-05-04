@@ -1,6 +1,16 @@
 <p class="apiaries__title">Apiaries</p>
+<div class="apiaries">
+  <mat-form-field appearance="fill">
+    <mat-label>Select apiary</mat-label>
+    <mat-select [(value)]="selectedApiary" (selectionChange)="getHives()">
+      <mat-option *ngFor="let apiary of apiaries" [value]="apiary">
+        {{'Apiary ' + apiary.id}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
 <div class="apiaries__main"
-     *ngIf="!isLoading"
+     *ngIf="!isLoading && selectedApiary"
      [ngClass]="{'__disabled': isApiariesUpdating}">
   <div class="apiaries__header">
     <p>{{'actions' | translate}}</p>
@@ -11,26 +21,24 @@
   </div>
   <div class="apiaries__body">
     <div class="apiaries__item"
-         *ngFor="let item of apiaries">
-      <!-- <p class="actions">
+         *ngFor="let item of hives">
+      <p class="actions">
         <mat-icon svgIcon="edit"
                   class="hive-statistics__delete-icon"
-                  (click)="openAddGoodDialog(item)">
+                  (click)="openAddHiveDialog(item)">
         </mat-icon>
         <mat-icon svgIcon="delete"
-                  class="hive-statistics__delete-icon"
-                  (click)="openRemoveConfirmDialog(item.id)">
+                  class="hive-statistics__delete-icon">
         </mat-icon>
       </p>
-      <p>{{item.name}}</p>
-      <p>{{item.restrictions}}</p>
-      <p>{{item.volume}}</p>
-      <p>{{item.cost}}</p>
-      <p>{{item.usedForWinter ? '+' : '-'}}</p> -->
+      <p>{{'Hive ' + item.beehive.id}}</p>
+      <p>{{item.finalCountOfFrames}}</p>
+      <p>{{item.beehive.apiaryValue.worker.lastName + ' ' + item.beehive.apiaryValue.worker.firstName}}</p>
+      <p>{{item.goods.name + ' - ' + item.goods.volume}}</p>
     </div>
   </div>
-  <button mat-button class="apiaries__add-new">
-    Add apiary
+  <button mat-button class="apiaries__add-new" (click)="openAddHiveDialog()">
+    Add hive
   </button>
 </div>
 <mat-spinner class="hive-statistics" *ngIf="isLoading || isApiariesUpdating"></mat-spinner>
