@@ -105,4 +105,12 @@ export class PagesService {
   addHive(hiveId: number, goodId: number, workerId: number) {
     return this.http.get(`${BASE_URL}goodsExtraction/add?goodsId=${goodId}&beehiveId=${hiveId}&workerId=${workerId}`);
   }
+
+  editHive(id: number, hiveId: number, goodId: number, workerId: number) {
+    return this.http.get(`${BASE_URL}goodsExtraction/update?goodsExtractionId=${id}&goodsId=${goodId}&beehiveId=${hiveId}&workerId=${workerId}`);
+  }
+
+  deleteHive(id: number) {
+    return this.http.delete(`${BASE_URL}goodsExtraction/delete?id=${id}`);
+  }
 }

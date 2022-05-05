@@ -28,7 +28,8 @@
                   (click)="openAddHiveDialog(item)">
         </mat-icon>
         <mat-icon svgIcon="delete"
-                  class="hive-statistics__delete-icon">
+                  class="hive-statistics__delete-icon"
+                  (click)="openRemoveConfirmDialog(item.id)">
         </mat-icon>
       </p>
       <p>{{'Hive ' + item.beehive.id}}</p>

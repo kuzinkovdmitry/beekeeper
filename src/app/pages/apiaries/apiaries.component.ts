@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddHiveComponent } from 'src/app/components/dialogs/add-hive/add-hive.component';
+import { RemoveConfirmComponent } from 'src/app/components/dialogs/remove-confirm/remove-confirm.component';
 import { PagesService } from 'src/app/services/pages.service';
 
 @Component({
@@ -36,14 +37,45 @@ export class ApiariesComponent implements OnInit {
       if (data) {
         this.isApiariesUpdating = true;
         this.cdRef.detectChanges();
-        this.addHive(data);
+        hive ? this.editHive(data) : this.addHive(data);
+      }
+    });
+  }
+
+  openRemoveConfirmDialog(hiveId: number) {
+    const dialogRef = this.dialog.open(RemoveConfirmComponent, {
+      width: '400px',
+      data: {text: 'Do you really want to delete this hive?'}
+    });
+
+    dialogRef.afterClosed().subscribe((isRemove: boolean) => {
+      if (isRemove) {
+        this.isApiariesUpdating = true;
+        this.cdRef.detectChanges();
+        this.removeHive(hiveId);
       }
     });
   }
 
   addHive(body) {
     this.pagesService.addHive(body.hive, body.good, body.worker).subscribe(data => {
-      console.log(data);
+      this.hives.push(data);
+      this.isApiariesUpdating = false;
+      this.cdRef.detectChanges();
+    });
+  }
+
+  editHive(body): void {
+    this.pagesService.editHive(body.id, body.hive, body.good, body.worker).subscribe((data: any) => {
+      this.hives = this.hives.map(hive => hive.id === data.id ? data : hive);
+      this.isApiariesUpdating = false;
+      this.cdRef.detectChanges();
+    });
+  }
+
+  removeHive(hiveId: number) {
+    this.pagesService.deleteHive(hiveId).subscribe(() => {
+      this.hives = this.hives.filter(item => item.id !== hiveId);
       this.isApiariesUpdating = false;
       this.cdRef.detectChanges();
     });

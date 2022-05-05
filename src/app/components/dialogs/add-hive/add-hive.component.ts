@@ -55,14 +55,16 @@ export class AddHiveComponent implements OnInit {
 
   save() {
     const formValues = this.addHiveForm.value;
-    // if (this.data.isEditMode) {
-    //   formValues.id = this.data.editData.id;
-    // }
+    if (this.data.isEditMode) {
+      formValues.id = this.data.editData.id;
+    }
     this.dialogRef.close(formValues);
   }
 
   initEditState() {
-    this.addHiveForm.patchValue(this.data.editData);
+    this.addHiveForm.get('hive').setValue(this.data.editData.beehive.id);
+    this.addHiveForm.get('good').setValue(this.data.editData.goods.id);
+    this.addHiveForm.get('worker').setValue(this.data.editData.beehive.apiaryValue.worker.id);
   }
 
   closeDialog() {
