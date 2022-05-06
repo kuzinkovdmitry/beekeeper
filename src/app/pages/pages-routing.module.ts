@@ -1,3 +1,4 @@
+import { PlanComponent } from './plan/plan.component';
 import { GoodsComponent } from './goods/goods.component';
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
@@ -47,6 +48,11 @@ const routes: Routes = [
       {
         path: 'apiaries',
         component: ApiariesComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'plan',
+        component: PlanComponent,
         canActivate: [AuthGuard]
       }
     ]

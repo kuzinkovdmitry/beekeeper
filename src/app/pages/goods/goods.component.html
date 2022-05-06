@@ -1,7 +1,7 @@
 <p class="goods__title">{{'menu-goods' | translate}}</p>
 <div class="apiaries">
   <mat-form-field appearance="fill">
-    <mat-label>Select apiary</mat-label>
+    <mat-label>Apiary</mat-label>
     <mat-select [(value)]="selectedApiary" (selectionChange)="getGoods()">
       <mat-option *ngFor="let apiary of apiaries" [value]="apiary">
         {{'Apiary ' + apiary.id}}

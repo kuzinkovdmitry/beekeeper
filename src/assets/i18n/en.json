@@ -71,5 +71,6 @@
   "cost": "Cost",
   "winterUse": "Use for winter feeding",
   "actions": "Actions",
-  "add-new-good": "Add new good"
+  "add-new-good": "Add new good",
+  "menu-plan": "Optimization plan"
 }

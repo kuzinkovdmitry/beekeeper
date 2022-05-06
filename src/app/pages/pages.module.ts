@@ -13,6 +13,7 @@ import {ChartModule} from 'angular-highcharts';
 import { WeatherStatisticsComponent } from './weather-statistics/weather-statistics.component';
 import { GoodsComponent } from './goods/goods.component';
 import { ApiariesComponent } from './apiaries/apiaries.component';
+import { PlanComponent } from './plan/plan.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ApiariesComponent } from './apiaries/apiaries.component';
     HiveStatisticsComponent,
     WeatherStatisticsComponent,
     GoodsComponent,
-    ApiariesComponent
+    ApiariesComponent,
+    PlanComponent
   ],
   imports: [
     CommonModule,

@@ -1,12 +1,5 @@
 export const MENU_LIST = [
   {
-    key: 'home',
-    url: '/home',
-    translate: 'menu-home',
-    active: false,
-    mustLogin: false
-  },
-  {
     key: 'hive-statistics',
     url: '/hive-statistics',
     translate: 'menu-hive-statistics',
@@ -45,6 +38,13 @@ export const MENU_LIST = [
     key: 'apiaries',
     url: '/apiaries',
     translate: 'menu-apiaries',
+    active: false,
+    mustLogin: true
+  },
+  {
+    key: 'plan',
+    url: '/plan',
+    translate: 'menu-plan',
     active: false,
     mustLogin: true
   }

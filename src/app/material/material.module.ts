@@ -13,6 +13,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 const MATERIAL_MODULES = [
   MatIconModule,
@@ -24,7 +25,8 @@ const MATERIAL_MODULES = [
   MatProgressSpinnerModule,
   MatDialogModule,
   MatRadioModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatDatepickerModule
 ];
 
 @NgModule({

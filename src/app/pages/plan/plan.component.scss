@@ -1,0 +1,21 @@
+:host {
+  position: relative;
+  display: block;
+  height: calc(100vh - 70px);
+  padding: 40px;
+  background-color: rgba(#ffd633, .9);
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.plan {
+  padding: 40px 5% 0;
+
+  &__title {
+    margin: 0;
+    line-height: 30px;
+    text-align: center;
+    font-size: 30px;
+    text-transform: uppercase;
+  }
+}

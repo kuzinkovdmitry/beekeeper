@@ -102,12 +102,12 @@ export class PagesService {
     return this.http.get(`${BASE_URL}beehive/byAppiaryId?id=${id}`);
   }
 
-  addHive(hiveId: number, goodId: number, workerId: number) {
-    return this.http.get(`${BASE_URL}goodsExtraction/add?goodsId=${goodId}&beehiveId=${hiveId}&workerId=${workerId}`);
+  addHive(hiveId: number, goodId: number, workerId: number, finalCountOfFrames: number) {
+    return this.http.get(`${BASE_URL}goodsExtraction/add?goodsId=${goodId}&beehiveId=${hiveId}&workerId=${workerId}&finalCountOfFrames=${finalCountOfFrames}`);
   }
 
-  editHive(id: number, hiveId: number, goodId: number, workerId: number) {
-    return this.http.get(`${BASE_URL}goodsExtraction/update?goodsExtractionId=${id}&goodsId=${goodId}&beehiveId=${hiveId}&workerId=${workerId}`);
+  editHive(id: number, hiveId: number, goodId: number, workerId: number, finalCountOfFrames: number) {
+    return this.http.get(`${BASE_URL}goodsExtraction/update?goodsExtractionId=${id}&goodsId=${goodId}&beehiveId=${hiveId}&workerId=${workerId}&finalCountOfFrames=${finalCountOfFrames}`);
   }
 
   deleteHive(id: number) {

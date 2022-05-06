@@ -1,4 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { AddHiveComponent } from 'src/app/components/dialogs/add-hive/add-hive.component';
 import { RemoveConfirmComponent } from 'src/app/components/dialogs/remove-confirm/remove-confirm.component';
@@ -10,12 +11,15 @@ import { PagesService } from 'src/app/services/pages.service';
   styleUrls: ['./apiaries.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ApiariesComponent implements OnInit {
+export class ApiariesComponent implements OnInit, OnDestroy {
   isLoading = false;
   isApiariesUpdating: boolean;
   apiaries;
   selectedApiary;
+  selectedLocation;
+  date = new FormControl(new Date());
   hives;
+  locations = ['Forest', 'Field', 'Yard'];
 
   constructor(private pagesService: PagesService,
               private dialog: MatDialog,
@@ -25,6 +29,20 @@ export class ApiariesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getApiaries();
+    this.setSavedData();
+  }
+
+  private setSavedData(): void {
+    const date = localStorage.getItem('date');
+    const location = localStorage.getItem('location');
+    console.log(date);
+
+    if (date) {
+      this.date.setValue(new Date(date));
+    }
+    if (location) {
+      this.selectedLocation = location;
+    }
   }
 
   public openAddHiveDialog(hive?): void {
@@ -58,7 +76,7 @@ export class ApiariesComponent implements OnInit {
   }
 
   addHive(body) {
-    this.pagesService.addHive(body.hive, body.good, body.worker).subscribe(data => {
+    this.pagesService.addHive(body.hive, body.good, body.worker, body.finalCountOfFrames).subscribe(data => {
       this.hives.push(data);
       this.isApiariesUpdating = false;
       this.cdRef.detectChanges();
@@ -66,7 +84,7 @@ export class ApiariesComponent implements OnInit {
   }
 
   editHive(body): void {
-    this.pagesService.editHive(body.id, body.hive, body.good, body.worker).subscribe((data: any) => {
+    this.pagesService.editHive(body.id, body.hive, body.good, body.worker, body.finalCountOfFrames).subscribe((data: any) => {
       this.hives = this.hives.map(hive => hive.id === data.id ? data : hive);
       this.isApiariesUpdating = false;
       this.cdRef.detectChanges();
@@ -96,6 +114,11 @@ export class ApiariesComponent implements OnInit {
       this.isLoading = false;
       this.cdRef.detectChanges();
     });
+  }
+
+  ngOnDestroy(): void {
+    localStorage.setItem('date', this.date.value);
+    localStorage.setItem('location', this.selectedLocation);
   }
 
 }

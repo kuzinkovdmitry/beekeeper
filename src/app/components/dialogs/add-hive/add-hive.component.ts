@@ -49,7 +49,8 @@ export class AddHiveComponent implements OnInit {
     this.addHiveForm = new FormGroup({
       hive: new FormControl('', [Validators.required]),
       good: new FormControl('', [Validators.required]),
-      worker: new FormControl('', [Validators.required])
+      worker: new FormControl('', [Validators.required]),
+      finalCountOfFrames: new FormControl('', [Validators.required])
     });
   }
 
@@ -65,6 +66,7 @@ export class AddHiveComponent implements OnInit {
     this.addHiveForm.get('hive').setValue(this.data.editData.beehive.id);
     this.addHiveForm.get('good').setValue(this.data.editData.goods.id);
     this.addHiveForm.get('worker').setValue(this.data.editData.beehive.apiaryValue.worker.id);
+    this.addHiveForm.get('finalCountOfFrames').setValue(this.data.editData.finalCountOfFrames);
   }
 
   closeDialog() {

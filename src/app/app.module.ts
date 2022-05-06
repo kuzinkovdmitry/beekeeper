@@ -13,6 +13,7 @@ import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { AddWorkerComponent } from './components/dialogs/add-worker/add-worker.component';
 import { AddGoodComponent } from './components/dialogs/add-good/add-good.component';
 import { AddHiveComponent } from './components/dialogs/add-hive/add-hive.component';
+import {MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { AddHiveComponent } from './components/dialogs/add-hive/add-hive.compone
     AppRoutingModule,
     MaterialModule,
     BrowserAnimationsModule,
+    MatNativeDateModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {

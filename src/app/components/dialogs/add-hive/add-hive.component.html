@@ -33,6 +33,13 @@
       </mat-select>
     </mat-form-field>
 
+    <mat-form-field floatLabel="auto"
+                    class="add-hive__field"
+                    appearance="outline">
+    <mat-label>Common amount of frames</mat-label>
+    <input matInput type="number" formControlName="finalCountOfFrames">
+  </mat-form-field>
+
   <button mat-raised-button
           [disabled]="!addHiveForm.valid"
           class="add-hive__add-button"
