@@ -2,11 +2,34 @@
 <div class="plan">
   <mat-form-field appearance="fill">
     <mat-label>Algorithm</mat-label>
-    <mat-select [(value)]="selectedAlgorithm">
+    <mat-select [(value)]="selectedAlgorithm" (selectionChange)="getData()">
       <mat-option *ngFor="let algorithm of algorithms" [value]="algorithm">
-        {{algorithm.name}}
+        {{algorithm}}
       </mat-option>
     </mat-select>
   </mat-form-field>
 </div>
+<div class="plan__result" *ngIf="!isLoading && algoritmResult">
+  <div class="plan__item" *ngFor="let item of algoritmResult">
+    <img src="../../../assets/images/honey.png" alt="" class="honey-img">
+    <h2>Hive {{item.id}}</h2>
+    <table class="plan__table">
+      <thead>
+        <tr>
+          <th>Good</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let good of item.goods">
+          <td>{{good.name}}</td>
+          <td class="total">{{good.total}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="winter">Left for winter {{item.leftForWinter}} liters of honey</p>
+    <h3 class="profit">Profit - {{item.profit}} $</h3>
+  </div>
+</div>
+<h1 class="total" *ngIf="!isLoading && algoritmResult">Total profit - 400 000 $</h1>
 <mat-spinner class="hive-statistics" *ngIf="isLoading"></mat-spinner>
