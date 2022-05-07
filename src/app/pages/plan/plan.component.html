@@ -28,8 +28,8 @@
       </tbody>
     </table>
     <p class="winter">Left for winter {{item.leftForWinter}} liters of honey</p>
-    <h3 class="profit">Profit - {{item.profit}} $</h3>
+    <h3 class="profit">Profit: {{item.profit}} $</h3>
   </div>
 </div>
-<h1 class="total" *ngIf="!isLoading && algoritmResult">Total profit - 400 000 $</h1>
+<h1 class="total" *ngIf="!isLoading && algoritmResult">Total profit: 12 770 $</h1>
 <mat-spinner class="hive-statistics" *ngIf="isLoading"></mat-spinner>

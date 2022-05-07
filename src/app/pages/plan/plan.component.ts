@@ -29,20 +29,11 @@ export class PlanComponent implements OnInit {
       this.algoritmResult = [
         {
           id: 1,
-          leftForWinter: 110,
-          profit: '220 000',
+          leftForWinter: 30,
+          profit: '12 770',
           goods: [
-            { name: 'Honey', total: 10 },
-            { name: 'Honeycomb', total: 11 }
-          ]
-        },
-        {
-          id: 2,
-          leftForWinter: 77,
-          profit: '12 309',
-          goods: [
-            { name: 'Honey', total: 4 },
-            { name: 'Honeycomb', total: 21 }
+            { name: 'Honey', total: 5 },
+            { name: 'Honeycomb', total: 23 }
           ]
         }
       ];
