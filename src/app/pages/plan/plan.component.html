@@ -1,8 +1,16 @@
 <p class="plan__title">Optimization plan</p>
 <div class="plan">
+    <mat-form-field appearance="fill">
+      <mat-label>Apiary</mat-label>
+      <mat-select [(value)]="selectedApiary" (selectionChange)="getData()">
+        <mat-option *ngFor="let apiary of apiaries" [value]="apiary">
+          {{'Apiary ' + apiary.id}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Algorithm</mat-label>
-    <mat-select [(value)]="selectedAlgorithm" (selectionChange)="getData()">
+    <mat-select [(value)]="selectedAlgorithm" (selectionChange)="getDataAlgorythm()">
       <mat-option *ngFor="let algorithm of algorithms" [value]="algorithm">
         {{algorithm}}
       </mat-option>
@@ -31,5 +39,5 @@
     <h3 class="profit">Profit: {{item.profit}} $</h3>
   </div>
 </div>
-<h1 class="total" *ngIf="!isLoading && algoritmResult">Total profit: 12 770 $</h1>
+<h1 class="total" *ngIf="!isLoading && algoritmResult">Total profit: {{total}} $</h1>
 <mat-spinner class="hive-statistics" *ngIf="isLoading"></mat-spinner>

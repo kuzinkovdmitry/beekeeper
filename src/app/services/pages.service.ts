@@ -75,7 +75,7 @@ export class PagesService {
   }
 
   getGoods(id) {
-    return this.http.get(`${BASE_URL}goods/getAllGoods?id=${id}`);
+    return this.http.get(`${BASE_URL}goods/getAllGoodsByApiary?id=${id}`);
   }
 
   addGood(goodData) {

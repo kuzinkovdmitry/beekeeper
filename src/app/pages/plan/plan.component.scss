@@ -13,6 +13,8 @@ p, table {
 }
 
 .plan {
+  display: flex;
+  gap: 15px;
   padding: 40px 5% 0;
 
   &__title {
@@ -26,6 +28,7 @@ p, table {
   &__result {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 30px;
     margin-top: 20px;
     padding: 0 5%;
@@ -33,6 +36,8 @@ p, table {
 
   &__item {
     position: relative;
+    width: 268px;
+    box-sizing: border-box;
     padding: 10px 20px;
     background-color: #ffad33;
     border: 1px solid black;
